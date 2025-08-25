@@ -1,0 +1,124 @@
+{
+  "scenarios": [
+    {
+      "id": "scenario_1",
+      "name": "Successful Checkout with Existing User",
+      "description": "Verify a successful checkout process for an existing user with a valid payment method and shipping address.",
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "https://www.amazon.in/?&tag=googhydrabk1-21&ref=pd_sl_7hz2t19t5c_e&adgrpid=155259815513&hvpone=&hvptwo=&hvadid=674842289437&hvpos=&hvnetw=g&hvrand=13720526301031377898&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062008&hvtargid=kwd-10573980&hydadcr=14453_2316415&gad_source=1",
+          "data": null,
+          "description": "Navigate to Amazon India homepage"
+        },
+        {
+          "action": "login",
+          "target": null,
+          "data": {
+            "username": "Roshni",
+            "password": "casd"
+          },
+          "description": "Login with provided credentials"
+        },
+        {
+          "action": "add_to_cart",
+          "target": "a product from the homepage (e.g., a book)",
+          "data": null,
+          "description": "Add a product to the shopping cart"
+        },
+        {
+          "action": "proceed_to_checkout",
+          "target": "Checkout button",
+          "data": null,
+          "description": "Proceed to checkout"
+        },
+        {
+          "action": "select_shipping_address",
+          "target": "Existing shipping address",
+          "data": null,
+          "description": "Select an existing shipping address"
+        },
+        {
+          "action": "select_payment_method",
+          "target": "Existing payment method",
+          "data": null,
+          "description": "Select an existing payment method"
+        },
+        {
+          "action": "place_order",
+          "target": "Place Order button",
+          "data": null,
+          "description": "Place the order"
+        },
+        {
+          "action": "verify_order_confirmation",
+          "target": "Order confirmation page",
+          "data": {
+            "order_id": "Order ID should be present"
+          },
+          "description": "Verify the order confirmation page with order ID"
+        }
+      ]
+    },
+    {
+      "id": "scenario_2",
+      "name": "Checkout with Invalid Payment",
+      "description": "Attempt checkout with an invalid payment method (e.g., expired card) and verify the error message.",
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "https://www.amazon.in/?&tag=googhydrabk1-21&ref=pd_sl_7hz2t19t5c_e&adgrpid=155259815513&hvpone=&hvptwo=&hvadid=674842289437&hvpos=&hvnetw=g&hvrand=13720526301031377898&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062008&hvtargid=kwd-10573980&hydadcr=14453_2316415&gad_source=1",
+          "data": null,
+          "description": "Navigate to Amazon India homepage"
+        },
+        {
+          "action": "login",
+          "target": null,
+          "data": {
+            "username": "Roshni",
+            "password": "casd"
+          },
+          "description": "Login with provided credentials"
+        },
+        {
+          "action": "add_to_cart",
+          "target": "a product from the homepage (e.g., a book)",
+          "data": null,
+          "description": "Add a product to the shopping cart"
+        },
+        {
+          "action": "proceed_to_checkout",
+          "target": "Checkout button",
+          "data": null,
+          "description": "Proceed to checkout"
+        },
+        {
+          "action": "select_shipping_address",
+          "target": "Existing shipping address",
+          "data": null,
+          "description": "Select an existing shipping address"
+        },
+        {
+          "action": "select_payment_method",
+          "target": "Invalid payment method (e.g., expired card)",
+          "data": null,
+          "description": "Select an invalid payment method"
+        },
+        {
+          "action": "place_order",
+          "target": "Place Order button",
+          "data": null,
+          "description": "Attempt to place the order"
+        },
+        {
+          "action": "verify_error_message",
+          "target": "Error message element",
+          "data": {
+            "expected_message": "Expected error message related to invalid payment"
+          },
+          "description": "Verify that an appropriate error message is displayed"
+        }
+      ]
+    }
+  ]
+}

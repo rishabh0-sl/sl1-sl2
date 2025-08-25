@@ -1,0 +1,46 @@
+{
+  "runId": "run_1756120893453",
+  "ir": {
+    "suiteId": "suite_scenario_1",
+    "cases": [
+      {
+        "id": "case_scenario_1",
+        "name": "Successful Login",
+        "steps": [
+          {
+            "type": "goto",
+            "url": "https://www.amazon.in/?&tag=googhydrabk1-21&ref=pd_sl_7hz2t19t5c_e&adgrpid=155259815513&hvpone=&hvptwo=&hvadid=674842289437&hvpos=&hvnetw=g&hvrand=13720526301031377898&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062008&hvtargid=kwd-10573980&hydadcr=14453_2316415&gad_source=1",
+            "value": null
+          },
+          {
+            "type": "fill",
+            "selector": "#ap_email",
+            "value": "1234"
+          },
+          {
+            "type": "fill",
+            "selector": "#ap_password",
+            "value": "12"
+          },
+          {
+            "type": "click",
+            "selector": "#signInSubmit",
+            "value": null
+          },
+          {
+            "type": "expect",
+            "selector": "a[href='https://www.amazon.in/gp/css/homepage.html?ie=UTF8&ref_=nav_custrec_signin']",
+            "value": null
+          }
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "testFileName": "Successful_Login.spec.ts",
+    "pageObjects": [
+      "pages/AmazonPage.ts"
+    ],
+    "ts": "import { test, expect } from '@playwright/test';\n\ntest('Successful Login', async ({ page }) => {\n  // Navigate to the page\n  await page.goto('https://www.amazon.in/?&tag=googhydrabk1-21&ref=pd_sl_7hz2t19t5c_e&adgrpid=155259815513&hvpone=&hvptwo=&hvadid=674842289437&hvpos=&hvnetw=g&hvrand=13720526301031377898&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062008&hvtargid=kwd-10573980&hydadcr=14453_2316415&gad_source=1');\n\n  // Fill input field\n  await page.locator('#ap_email').fill('1234');\n\n  // Fill input field\n  await page.locator('#ap_password').fill('12');\n\n  // Click on element\n  await page.locator('#signInSubmit').click();\n\n  // Verify element\n  await expect(page.locator('a[href='https://www.amazon.in/gp/css/homepage.html?ie=UTF8&ref_=nav_custrec_signin']')).toBeVisible();\n});\n"
+  }
+}

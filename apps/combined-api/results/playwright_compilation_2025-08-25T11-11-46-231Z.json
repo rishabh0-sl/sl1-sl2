@@ -1,0 +1,39 @@
+{
+  "runId": "run_1756120306231",
+  "ir": {
+    "suiteId": "suite_scenario_1",
+    "cases": [
+      {
+        "id": "case_scenario_1",
+        "name": "Successful Movie Search",
+        "steps": [
+          {
+            "type": "navigate",
+            "selector": "https://in.bookmyshow.com/explore/home/bengaluru",
+            "value": null
+          },
+          {
+            "type": "type",
+            "selector": "input[type='search']",
+            "value": "Coolie"
+          },
+          {
+            "type": "submit",
+            "selector": "form[role='search']",
+            "value": null
+          },
+          {
+            "type": "verify",
+            "selector": "div.movie-title:contains('Coolie No. 1') or div.movie-title:contains('Coolie')",
+            "value": true
+          }
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "testFileName": "Successful_Movie_Search.spec.ts",
+    "pageObjects": [],
+    "ts": "import { test, expect } from '@playwright/test';\n\ntest('Successful Movie Search', async ({ page }) => {\n  // navigate: Navigate to BookMyShow Bengaluru homepage\n  await page.locator('https://in.bookmyshow.com/explore/home/bengaluru').navigate();\n\n  // Fill input field\n  await page.locator('input[type='search']').fill('Coolie');\n\n  // submit: Submit the search\n  await page.locator('form[role='search']').submit();\n\n  // verify: Verify that at least one result containing 'Coolie' or 'Coolie No. 1' is displayed\n  await page.locator('div.movie-title:contains('Coolie No. 1') or div.movie-title:contains('Coolie')').verify();\n});\n"
+  }
+}

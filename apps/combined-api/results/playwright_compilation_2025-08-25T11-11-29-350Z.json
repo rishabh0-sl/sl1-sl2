@@ -1,0 +1,39 @@
+{
+  "runId": "run_1756120289350",
+  "ir": {
+    "suiteId": "suite_scenario_1",
+    "cases": [
+      {
+        "id": "case_scenario_2",
+        "name": "Handling No Results",
+        "steps": [
+          {
+            "type": "navigate",
+            "selector": "https://in.bookmyshow.com/explore/home/bengaluru",
+            "value": null
+          },
+          {
+            "type": "type",
+            "selector": "input[type='search']",
+            "value": "NonExistentMovieTitle"
+          },
+          {
+            "type": "submit",
+            "selector": "form[role='search']",
+            "value": null
+          },
+          {
+            "type": "verify",
+            "selector": "div.no-results or p.no-results",
+            "value": true
+          }
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "testFileName": "Successful_Movie_Search.spec.ts",
+    "pageObjects": [],
+    "ts": "import { test, expect } from '@playwright/test';\n\ntest('Handling No Results', async ({ page }) => {\n  // navigate: Navigate to BookMyShow Bengaluru homepage\n  await page.locator('https://in.bookmyshow.com/explore/home/bengaluru').navigate();\n\n  // Fill input field\n  await page.locator('input[type='search']').fill('NonExistentMovieTitle');\n\n  // submit: Submit the search\n  await page.locator('form[role='search']').submit();\n\n  // verify: Verify that a 'no results' message or similar indicator is displayed\n  await page.locator('div.no-results or p.no-results').verify();\n});\n"
+  }
+}

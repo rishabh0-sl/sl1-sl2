@@ -1,0 +1,78 @@
+{
+  "scenarios": [
+    {
+      "id": "scenario_1",
+      "name": "Successful Login",
+      "description": "Verify a successful login with valid credentials.",
+      "steps": [
+        {
+          "action": "goto",
+          "target": "https://www.amazon.in/?&tag=googhydrabk1-21&ref=pd_sl_7hz2t19t5c_e&adgrpid=155259815513&hvpone=&hvptwo=&hvadid=674842289437&hvpos=&hvnetw=g&hvrand=13720526301031377898&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062008&hvtargid=kwd-10573980&hydadcr=14453_2316415&gad_source=1",
+          "data": null,
+          "description": "Navigate to the Amazon India login page"
+        },
+        {
+          "action": "fill",
+          "target": "#ap_email",
+          "data": "1234",
+          "description": "Enter the username"
+        },
+        {
+          "action": "fill",
+          "target": "#ap_password",
+          "data": "12",
+          "description": "Enter the password"
+        },
+        {
+          "action": "click",
+          "target": "#signInSubmit",
+          "data": null,
+          "description": "Click the Sign-In button"
+        },
+        {
+          "action": "expect",
+          "target": "a[href='https://www.amazon.in/gp/css/homepage.html?ie=UTF8&ref_=nav_custrec_signin']",
+          "data": null,
+          "description": "Verify successful login by checking for a user account related link (e.g., account settings link)."
+        }
+      ]
+    },
+    {
+      "id": "scenario_2",
+      "name": "Incorrect Password",
+      "description": "Verify error handling for an incorrect password.",
+      "steps": [
+        {
+          "action": "goto",
+          "target": "https://www.amazon.in/?&tag=googhydrabk1-21&ref=pd_sl_7hz2t19t5c_e&adgrpid=155259815513&hvpone=&hvptwo=&hvadid=674842289437&hvpos=&hvnetw=g&hvrand=13720526301031377898&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9062008&hvtargid=kwd-10573980&hydadcr=14453_2316415&gad_source=1",
+          "data": null,
+          "description": "Navigate to the Amazon India login page"
+        },
+        {
+          "action": "fill",
+          "target": "#ap_email",
+          "data": "1234",
+          "description": "Enter the username"
+        },
+        {
+          "action": "fill",
+          "target": "#ap_password",
+          "data": "wrongpassword",
+          "description": "Enter an incorrect password"
+        },
+        {
+          "action": "click",
+          "target": "#signInSubmit",
+          "data": null,
+          "description": "Click the Sign-In button"
+        },
+        {
+          "action": "expect",
+          "target": ".a-alert-error",
+          "data": null,
+          "description": "Verify that an error message is displayed (Amazon's error message class may vary; adapt as needed)."
+        }
+      ]
+    }
+  ]
+}

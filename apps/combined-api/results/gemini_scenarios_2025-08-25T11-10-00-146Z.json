@@ -1,0 +1,109 @@
+{
+  "scenarios": [
+    {
+      "id": "scenario_1",
+      "name": "Successful Login",
+      "description": "Verify a user can successfully log in with valid credentials.",
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "https://example.com",
+          "data": null,
+          "description": "Navigate to the website home page"
+        },
+        {
+          "action": "input",
+          "target": "input[name='username']",
+          "data": "testuser",
+          "description": "Enter username 'testuser'"
+        },
+        {
+          "action": "input",
+          "target": "input[name='password']",
+          "data": "testpass",
+          "description": "Enter password 'testpass'"
+        },
+        {
+          "action": "click",
+          "target": "button[type='submit']",
+          "data": null,
+          "description": "Click the login button"
+        },
+        {
+          "action": "verify",
+          "target": ".user-profile",
+          "data": null,
+          "description": "Verify that the user profile section is displayed, indicating successful login."
+        }
+      ]
+    },
+    {
+      "id": "scenario_2",
+      "name": "Unsuccessful Login - Invalid Credentials",
+      "description": "Verify that an appropriate error message is displayed when using invalid credentials.",
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "https://example.com",
+          "data": null,
+          "description": "Navigate to the website home page"
+        },
+        {
+          "action": "input",
+          "target": "input[name='username']",
+          "data": "wronguser",
+          "description": "Enter an incorrect username"
+        },
+        {
+          "action": "input",
+          "target": "input[name='password']",
+          "data": "wrongpass",
+          "description": "Enter an incorrect password"
+        },
+        {
+          "action": "click",
+          "target": "button[type='submit']",
+          "data": null,
+          "description": "Click the login button"
+        },
+        {
+          "action": "verify",
+          "target": ".error-message",
+          "data": "Invalid username or password",
+          "description": "Verify that an error message containing 'Invalid username or password' is displayed"
+        }
+      ]
+    },
+    {
+      "id": "scenario_3",
+      "name": "Homepage Navigation",
+      "description": "Verify basic navigation to different sections of the homepage (assuming example.com has sections)",
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "https://example.com",
+          "data": null,
+          "description": "Navigate to the website home page"
+        },
+        {
+          "action": "click",
+          "target": "a[href='/about']",
+          "data": null,
+          "description": "Click on the 'About Us' link (replace with actual selector if known)"
+        },
+        {
+          "action": "verify",
+          "target": "h1:contains('About')",
+          "data": null,
+          "description": "Verify that the page title contains 'About'"
+        },
+        {
+          "action": "back",
+          "target": null,
+          "data": null,
+          "description": "Navigate back to homepage"
+        }
+      ]
+    }
+  ]
+}

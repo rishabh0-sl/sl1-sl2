@@ -1,0 +1,103 @@
+{
+  "scenarios": [
+    {
+      "id": "scenario_1",
+      "name": "Successful Movie Search",
+      "description": "Verify that searching for 'Coolie' returns relevant movie results, including 'Coolie No. 1' if available.",
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "https://in.bookmyshow.com/explore/home/bengaluru",
+          "data": null,
+          "description": "Navigate to BookMyShow Bengaluru homepage"
+        },
+        {
+          "action": "type",
+          "target": "input[type='search']",
+          "data": "Coolie",
+          "description": "Enter 'Coolie' in the search bar"
+        },
+        {
+          "action": "submit",
+          "target": "form[role='search']",
+          "data": null,
+          "description": "Submit the search"
+        },
+        {
+          "action": "verify",
+          "target": "div.movie-title:contains('Coolie')",
+          "data": null,
+          "description": "Verify that at least one movie title containing 'Coolie' is displayed in the search results."
+        },
+        {
+          "action": "check",
+          "target": "div.movie-title:contains('Coolie No. 1')",
+          "data": true,
+          "description": "Check if 'Coolie No. 1' (or a relevant Coolie movie) is present in the results (optional, depends on availability)"
+        }
+      ]
+    },
+    {
+      "id": "scenario_2",
+      "name": "Handling No Results",
+      "description": "Verify the behavior when searching for a movie title 'Coolie' that doesn't exist in the database.",
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "https://in.bookmyshow.com/explore/home/bengaluru",
+          "data": null,
+          "description": "Navigate to BookMyShow Bengaluru homepage"
+        },
+        {
+          "action": "type",
+          "target": "input[type='search']",
+          "data": "CoolieXYZ123",
+          "description": "Enter a non-existent movie title 'CoolieXYZ123' in the search bar"
+        },
+        {
+          "action": "submit",
+          "target": "form[role='search']",
+          "data": null,
+          "description": "Submit the search"
+        },
+        {
+          "action": "verify",
+          "target": "div.no-results-message",
+          "data": null,
+          "description": "Verify that a 'No results found' message (or similar) is displayed."
+        }
+      ]
+    },
+    {
+      "id": "scenario_3",
+      "name": "Partial Match Search",
+      "description": "Verify that searching for a partial movie title like 'Coolie No' returns relevant results.",
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "https://in.bookmyshow.com/explore/home/bengaluru",
+          "data": null,
+          "description": "Navigate to BookMyShow Bengaluru homepage"
+        },
+        {
+          "action": "type",
+          "target": "input[type='search']",
+          "data": "Coolie No",
+          "description": "Enter a partial movie title 'Coolie No' in the search bar"
+        },
+        {
+          "action": "submit",
+          "target": "form[role='search']",
+          "data": null,
+          "description": "Submit the search"
+        },
+        {
+          "action": "verify",
+          "target": "div.movie-title:contains('Coolie')",
+          "data": null,
+          "description": "Verify that at least one movie title containing 'Coolie' is displayed in the search results."
+        }
+      ]
+    }
+  ]
+}
